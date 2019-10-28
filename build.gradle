@@ -30,5 +30,5 @@ dependencies {
 flyway {
     url = 'jdbc:mysql://mysql-server:3306/my_database?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false&amp;autoReconnection=true'
     user = 'root'
-    password = 'password'
+    password = '1234'
 }
