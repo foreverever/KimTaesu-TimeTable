@@ -1,4 +1,5 @@
 $('.card-lecture').click(function () {
+  console.log("클릭!!")
   $('#modal-lecture-info').modal('show');
 });
 
