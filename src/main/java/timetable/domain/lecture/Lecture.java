@@ -4,6 +4,7 @@ import timetable.domain.lecture.memo.Memo;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Entity
@@ -102,4 +103,13 @@ public class Lecture {
     public void setMemos(List<Memo> memos) {
         this.memos = memos;
     }
+
+    public String getFormattedStartTime() {
+        return startTime.format(DateTimeFormatter.ofPattern("HH:mm"));
+    }
+
+    public String getFormattedEndTime() {
+        return endTime.format(DateTimeFormatter.ofPattern("HH:mm"));
+    }
+
 }
