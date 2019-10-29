@@ -21,4 +21,8 @@ public class LectureService {
         return lectureRepository.findById(id)
                 .orElseThrow(RuntimeException::new);
     }
+
+    public List<Lecture> findBySearch(String search) {
+        return lectureRepository.findBySearch(search);
+    }
 }

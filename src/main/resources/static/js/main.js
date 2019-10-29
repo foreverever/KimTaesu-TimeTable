@@ -1,4 +1,6 @@
-$('.card-lecture').click(function (e) {
+$('.card-lecture').click(popupLecture);
+
+function popupLecture(e) {
   e.preventDefault();
   console.log("클릭!!");
   var json = new Object();
@@ -15,8 +17,33 @@ $('.card-lecture').click(function (e) {
         $(completedTemplate).modal('show');
     }
   })
+}
 
-});
+function goSearch(e){
+  e.preventDefault();
+  console.log("검색 클릭!");
+  var search = $('#search-contents').val();
+  console.log(search);
+  var url = $('.form-search').attr('action');
+
+  $.ajax({
+      type : 'get',
+      url : url,
+      data : {search : search},
+      dataType : 'json',
+      error : onError,
+      success : function(data, status, jqXHR) {
+        var viewTemplate = "";
+        for(var i = 0; i<data.length; i++){
+            console.log(data[i]);
+            var template = $('#list-lecture-script').html();
+            viewTemplate += template.format(data[i].id,data[i].name,data[i].formattedStartTime,data[i].formattedEndTime,data[i].dates,data[i].code,data[i].professor, data[i].location);
+        }
+        $(".list-lecture").html(viewTemplate);
+        $('.card-lecture').click(popupLecture);
+      }
+  })
+}
 
 $('.lecture-time > a').click(function () {
   $('#modal-lecture-task').modal('show');

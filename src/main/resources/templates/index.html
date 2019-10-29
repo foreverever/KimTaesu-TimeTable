@@ -16,15 +16,14 @@
         <h3 class="headline">시간표 만들기</h3>
     </section>
     <section class="section-nav">
-        <form id="search-form" class="form-search">
-            <input type="text" placeholder="강의 검색" class="form-control">
+        <form id="search-form" class="form-search" action="/api/lectures" method="get">
+            <input type="text" placeholder="강의 검색" class="form-control" id="search-contents"name ="search" onkeypress="if(event.keyCode==13){goSearch(event);}">
             <span><i class="material-icons ic-search">search</i></span>
         </form>
-
         <ul class="list-lecture">
             {{#lectures}}
             <li class="card-lecture" >
-                <a class="lecture-title" id = "lecture-title" href="/api/lecture/{{id}}">{{name}}</a>
+                <a class="lecture-title" id = "lecture-title" href="/api/lectures/{{id}}">{{name}}</a>
                 <h6 class="lecture-time">
                     <i class="material-icons ic-lecture-info">access_time</i>
                     <span>
@@ -322,6 +321,25 @@
         </div>
     </div>
 </div>
+</script>
+
+<script type="text/template" id="list-lecture-script">
+    <ul class="list-lecture-script">
+            <li class="card-lecture" >
+                <a class="lecture-title" id = "lecture-title-script" href="/api/lectures/{0}">{1}</a>
+                <h6 class="lecture-time">
+                    <i class="material-icons ic-lecture-info">access_time</i>
+                    <span>
+                        <span id="lecture-start-time-script">{2}</span> - <span id="lecture-end-time-script">{3}</span> | (<span id="lecture-dates-script">{4}</span>)
+                    </span>
+                </h6>
+                <ul class="list-lecture-info">
+                    <li>교과목 코드 : <span id="lecture-code-script">{5}</span></li>
+                    <li>담당 교수 : <span id="lecture-professor-script">{6}</span></li>
+                    <li>강의실 : <span id="lecture-location-script">{7}</span></li>
+                </ul>
+            </li>
+        </ul>
 </script>
 
 <div class="modal fade" id="modal-lecture-task" role="dialog" aria-hidden="true">
