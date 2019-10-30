@@ -86,21 +86,19 @@
                                 <h4 class="day">Mon</h4>
                                 <!--<h6 class="date">4</h6>-->
                             </div>
-
                             <ul id="mon-line">
-                                <li class="lecture-time two-hr hr-12" data-event="lecture-01">
+                                {{#monLectures}}
+                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
                                     <a href="#">
                                         <div class="lecture-info">
-                                            <h6 class="lecture-title">웹 프로그래밍</h6>
-                                            <h6 class="lecture-location">공학관 204</h6>
+                                            <h6 class="lecture-title">{{name}}</h6>
+                                            <h6 class="lecture-location">{{location}}</h6>
                                         </div>
                                         <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
-                                            <i class="material-icons ic-lecture-noti">assignment</i>
-                                            <span class="lecture-noti-title">과제 제목 텍스트</span>
                                         </div>
                                     </a>
                                 </li>
-
+                                {{/monLectures}}
                                 <li class="lecture-time two-hr hr-13" data-event="lecture-02">
                                     <a href="#">
                                         <div class="lecture-info">
@@ -122,7 +120,18 @@
                                 <h4 class="day">Tue</h4>
                             </div>
                             <ul id="tue-line">
-
+                                {{#tueLectures}}
+                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
+                                    <a href="#">
+                                        <div class="lecture-info">
+                                            <h6 class="lecture-title">{{name}}</h6>
+                                            <h6 class="lecture-location">{{location}}</h6>
+                                        </div>
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
+                                        </div>
+                                    </a>
+                                </li>
+                                {{/tueLectures}}
                             </ul>
                         </li>
 
@@ -130,9 +139,19 @@
                             <div class="top-info">
                                 <h4 class="day">Wed</h4>
                             </div>
-
                             <ul id="web-line">
-
+                                {{#wedLectures}}
+                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
+                                    <a href="#">
+                                        <div class="lecture-info">
+                                            <h6 class="lecture-title">{{name}}</h6>
+                                            <h6 class="lecture-location">{{location}}</h6>
+                                        </div>
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
+                                        </div>
+                                    </a>
+                                </li>
+                                {{/wedLectures}}
                             </ul>
                         </li>
 
@@ -140,9 +159,19 @@
                             <div class="top-info">
                                 <h4 class="day">Thu</h4>
                             </div>
-
                             <ul id="thu-line">
-
+                                {{#thuLectures}}
+                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
+                                    <a href="#">
+                                        <div class="lecture-info">
+                                            <h6 class="lecture-title">{{name}}</h6>
+                                            <h6 class="lecture-location">{{location}}</h6>
+                                        </div>
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
+                                        </div>
+                                    </a>
+                                </li>
+                                {{/thuLectures}}
                             </ul>
                         </li>
 
@@ -150,9 +179,19 @@
                             <div class="top-info">
                                 <h4 class="day">Fri</h4>
                             </div>
-
                             <ul id="fri-line">
-
+                                {{#friLectures}}
+                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
+                                    <a href="#">
+                                        <div class="lecture-info">
+                                            <h6 class="lecture-title">{{name}}</h6>
+                                            <h6 class="lecture-location">{{location}}</h6>
+                                        </div>
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
+                                        </div>
+                                    </a>
+                                </li>
+                                {{/friLectures}}
                             </ul>
                         </li>
                     </ul>
@@ -234,8 +273,6 @@
                <h6 class="lecture-location">{4}</h6>
            </div>
            <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
-               <i class="material-icons ic-lecture-noti">assignment</i>
-               <span class="lecture-noti-title">{5}</span>
            </div>
        </a>
    </li>

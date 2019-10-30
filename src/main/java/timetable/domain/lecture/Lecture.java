@@ -1,6 +1,7 @@
 package timetable.domain.lecture;
 
 import timetable.domain.lecture.memo.Memo;
+import timetable.support.utils.LectureUtils;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -120,5 +121,22 @@ public class Lecture {
 
     public void setRegistered(boolean registered) {
         this.registered = registered;
+    }
+
+    public String getCodeNum() {
+        return LectureUtils.SubCodeNum(code);
+    }
+
+    public String getHour() {
+        if (dates.length() >= 2) return LectureUtils.TWO;
+        return "";
+    }
+
+    public String getHourOfStartTime(){
+        return LectureUtils.getHourOfStartTime(getFormattedStartTime());
+    }
+
+    public void register() {
+        this.registered = true;
     }
 }

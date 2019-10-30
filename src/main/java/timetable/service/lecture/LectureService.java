@@ -2,6 +2,7 @@ package timetable.service.lecture;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import timetable.domain.lecture.Lecture;
 import timetable.domain.lecture.LectureRepository;
 
@@ -26,11 +27,18 @@ public class LectureService {
         return lectureRepository.findBySearch(search);
     }
 
+    @Transactional
     public Lecture findByCode(String code) {
-        return lectureRepository.findByCode(code);
+        Lecture lecture = lectureRepository.findByCode(code);
+        lecture.register();
+        return lecture;
     }
 
     public List<Lecture> findByRegistered() {
         return lectureRepository.findByRegistered();
+    }
+
+    public List<Lecture> findDayLectures(String weekOfDay) {
+        return lectureRepository.findByRegisteredAndDatesContaining(true, weekOfDay);
     }
 }

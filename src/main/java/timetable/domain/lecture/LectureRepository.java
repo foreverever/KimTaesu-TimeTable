@@ -13,6 +13,6 @@ public interface LectureRepository extends JpaRepository<Lecture, Long> {
 
     @Query("select a from Lecture a where a.registered = false")
     List<Lecture> findByRegistered();
-//    @Query("select a from Lecture a where a.name = :search or a.code = :search or a.professor = :search")
-//    List<Lecture> findBySearch(@Param("search") String search);
+
+    List<Lecture> findByRegisteredAndDatesContaining(boolean registered, String dates);
 }
