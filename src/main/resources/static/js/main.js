@@ -1,6 +1,13 @@
+var map = new Map();
+map.set("월","mon-line");
+map.set("화","tue-line");
+map.set("수","web-line");
+map.set("목","thu-line");
+map.set("금","fri-line");
+var lectureId;
+
 $('.card-lecture').click(popupLecture);
 
-var lectureId;
 function popupLecture(e) {
   e.preventDefault();
   console.log("클릭!!");
@@ -22,14 +29,6 @@ function popupLecture(e) {
 }
 
 $(document).on('click', '#btn-primary', registerLecture);
-
-var map = new Map();
-map.set("월","mon-line");
-map.set("화","tue-line");
-map.set("수","web-line");
-map.set("목","thu-line");
-map.set("금","fri-line");
-
 function registerLecture(e) {
   e.preventDefault();
   console.log(lectureId);
@@ -56,14 +55,14 @@ function registerLecture(e) {
          if(data.dates.length>=2) {
             var first = map.get(data.dates[0]);
             var second = map.get(data.dates[1]);
-            var completedTemplate = template.format("two-hr", startHour, lectureNum, data.name, data.location, data.memos);
+            var completedTemplate = template.format("two-hr", startHour, lectureNum, data.name, data.location, data.memos, data.id);
 
             $('#' + first).append(completedTemplate);
             $('#' + second).append(completedTemplate);
          }
          else {
             var first = map.get(data.dates[0]);
-            var completedTemplate = template.format("", startHour, lectureNum, data.name, data.location, data.memos);
+            var completedTemplate = template.format("", startHour, lectureNum, data.name, data.location, data.memos, data.id);
             $('#' + first).append(completedTemplate);
          }
             $('.lecture-time > a').click(popupLectureTask);
@@ -99,9 +98,25 @@ function goSearch(e){
 
 $('.lecture-time > a').click(popupLectureTask);
 
+function popupLectureTask(e) {
+  e.preventDefault();
+  console.log("클릭!!");
+  var json = new Object();
+  var url = $(this).attr("href");
+  console.log(this);
+  console.log(url);
 
-function popupLectureTask() {
-  $('#modal-lecture-task').modal('show');
+  $.ajax({
+      type : 'get',
+      url : url,
+      dataType : 'json',
+      error : onError,
+      success : function(data, status, jqXHR) {
+        var template = $('#modal-lecture-task-script').html();
+        var completedTemplate = template.format(data.name, data.formattedStartTime, data.formattedEndTime, data.dates, data.code, data.professor, data.location, data.id);
+        $(completedTemplate).modal('show');
+    }
+  })
 }
 
 $(function () {

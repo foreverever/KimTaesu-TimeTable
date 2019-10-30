@@ -89,7 +89,7 @@
                             <ul id="mon-line">
                                 {{#monLectures}}
                                 <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
-                                    <a href="#">
+                                    <a href="/api/lectures/{{id}}">
                                         <div class="lecture-info">
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
@@ -122,7 +122,7 @@
                             <ul id="tue-line">
                                 {{#tueLectures}}
                                 <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
-                                    <a href="#">
+                                    <a href="/api/lectures/{{id}}">
                                         <div class="lecture-info">
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
@@ -142,7 +142,7 @@
                             <ul id="web-line">
                                 {{#wedLectures}}
                                 <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
-                                    <a href="#">
+                                    <a href="/api/lectures/{{id}}">
                                         <div class="lecture-info">
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
@@ -162,7 +162,7 @@
                             <ul id="thu-line">
                                 {{#thuLectures}}
                                 <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
-                                    <a href="#">
+                                    <a href="/api/lectures/{{id}}">
                                         <div class="lecture-info">
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
@@ -182,7 +182,7 @@
                             <ul id="fri-line">
                                 {{#friLectures}}
                                 <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
-                                    <a href="#">
+                                    <a href="/api/lectures/{{id}}">
                                         <div class="lecture-info">
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
@@ -267,7 +267,7 @@
 
 <script type="text/template" id="lecture-timeline-script">
     <li class="lecture-time {0} hr-{1}" data-event="lecture-{2}">
-       <a href="#">
+       <a href="/api/lectures/{6}">
            <div class="lecture-info">
                <h6 class="lecture-title">{3}</h6>
                <h6 class="lecture-location">{4}</h6>
@@ -278,6 +278,7 @@
    </li>
 </script>
 
+<script type="text/template" id="modal-lecture-task-script">
 <div class="modal fade" id="modal-lecture-task" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -287,23 +288,23 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h3 class="lecture-title">웹 프로그래밍</h3>
+                <h3 class="lecture-title">{0}</h3>
                 <ul class="lecture-info">
                     <li class="lecture-time">
                         <i class="material-icons ic-lecture-info">access_alarm</i>
-                        <span>강의 시간 : 09:00 - 10:50 | (월), (수)</span>
+                        <span>강의 시간 : {1} - {2} | ({3})</span>
                     </li>
                     <li class="lecture-code">
                         <i class="material-icons ic-lecture-info">code</i>
-                        <span>교과목 코드 : A0000001</span>
+                        <span>교과목 코드 : <span id="popup-task-code-{7}">{4}</span></span>
                     </li>
                     <li class="lecture-code">
                         <i class="material-icons ic-lecture-info">school</i>
-                        <span>담당 교수 : 김진수</span>
+                        <span>담당 교수 : {5}</span>
                     </li>
                     <li class="lecture-code">
                         <i class="material-icons ic-lecture-info">business</i>
-                        <span>강의실 : 공학관 204</span>
+                        <span>강의실 : {6}</span>
                     </li>
                 </ul>
                 <div class="lecture-description">
@@ -316,10 +317,10 @@
                     <h5 class="memo-header">메모</h5>
                     <ul>
                         <li class="memo-list">
-                            <div class="memo-content" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
-                                <i class="material-icons ic-lecture-noti">assignment</i>
-                                <span class="lecture-noti-title">과제 제목 텍스트</span>
-                            </div>
+                            <!--<div class="memo-content" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">-->
+                                <!--<i class="material-icons ic-lecture-noti">assignment</i>-->
+                                <!--<span class="lecture-noti-title">과제 제목 텍스트</span>-->
+                            <!--</div>-->
                             <div class="memo-btn">
                                 <a href=""><i class="material-icons ic-lecture-noti">delete</i></a>
                             </div>
@@ -342,6 +343,7 @@
         </div>
     </div>
 </div>
+</script>
 
 <div id="PopoverContent" style="display: none;">
     <h5 class="schedule-title">메모 등록하기</h5>
