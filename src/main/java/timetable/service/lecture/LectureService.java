@@ -25,4 +25,12 @@ public class LectureService {
     public List<Lecture> findBySearch(String search) {
         return lectureRepository.findBySearch(search);
     }
+
+    public Lecture findByCode(String code) {
+        return lectureRepository.findByCode(code);
+    }
+
+    public List<Lecture> findByRegistered() {
+        return lectureRepository.findByRegistered();
+    }
 }

@@ -32,4 +32,11 @@ public class ApiLectureController {
         log.debug("searchResult : {}", lectures);
         return lectures;
     }
+
+    @GetMapping("/code/{code}")
+    public Lecture register(@PathVariable String code) {
+        Lecture lecture = lectureService.findByCode(code);
+        log.debug("lecture : {}", lecture);
+        return lecture;
+    }
 }

@@ -81,13 +81,14 @@
 
                 <div class="table-schedule-subject">
                     <ul class="list-lecture-item">
-                        <li class="timeline-vertical">
+                        <li class="timeline-vertical" id="mon-line2">
                             <div class="top-info today">
                                 <h4 class="day">Mon</h4>
-                                <h6 class="date">4</h6>
+                                <!--<h6 class="date">4</h6>-->
                             </div>
-                            <ul>
-                                <li class="lecture-time two-hr hr-11" data-event="lecture-01">
+
+                            <ul id="mon-line">
+                                <li class="lecture-time two-hr hr-12" data-event="lecture-01">
                                     <a href="#">
                                         <div class="lecture-info">
                                             <h6 class="lecture-title">웹 프로그래밍</h6>
@@ -111,15 +112,6 @@
                                             <span class="lecture-noti-title">과제 제목 텍스트</span>
                                         </div>
 
-                                    </a>
-                                </li>
-
-                                <li class="lecture-time hr-16" data-event="lecture-03">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title">논리 설계</h6>
-                                            <h6 class="lecture-location">공학1관 102</h6>
-                                        </div>
                                     </a>
                                 </li>
                             </ul>
@@ -129,33 +121,8 @@
                             <div class="top-info">
                                 <h4 class="day">Tue</h4>
                             </div>
-                            <ul>
-                                <li class="lecture-time two-hr hr-10" data-event="lecture-04">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title">자료 구조</h6>
-                                            <h6 class="lecture-location">공학1관 102</h6>
-                                        </div>
-                                    </a>
-                                </li>
+                            <ul id="tue-line">
 
-                                <li class="lecture-time hr-12" data-event="lecture-05">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title">알고리즘</h6>
-                                            <h6 class="lecture-location">공학1관 102</h6>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="lecture-time hr-16" data-event="lecture-06">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title">컴퓨터 네트워크</h6>
-                                            <h6 class="lecture-location">공학1관 102</h6>
-                                        </div>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
 
@@ -164,39 +131,7 @@
                                 <h4 class="day">Wed</h4>
                             </div>
 
-                            <ul>
-                                <li class="lecture-time two-hr hr-10" data-event="lecture-01">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title">웹 프로그래밍</h6>
-                                            <h6 class="lecture-location">공학관 204</h6>
-                                        </div>
-
-                                    </a>
-                                </li>
-
-                                <li class="lecture-time hr-12" data-event="lecture-07">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title">컴파일러</h6>
-                                            <h6 class="lecture-location">공학관 602</h6>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="lecture-time two-hr hr-13" data-event="lecture-02">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title ">프로그래밍의 원리</h6>
-                                            <h6 class="lecture-location">공학1관 102</h6>
-                                        </div>
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
-                                            <i class="material-icons ic-lecture-noti">assignment</i>
-                                            <span class="lecture-noti-title">과제 제목 텍스트</span>
-                                        </div>
-
-                                    </a>
-                                </li>
+                            <ul id="web-line">
 
                             </ul>
                         </li>
@@ -206,38 +141,7 @@
                                 <h4 class="day">Thu</h4>
                             </div>
 
-                            <ul>
-                                <li class="lecture-time two-hr hr-10" data-event="lecture-04">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title">자료 구조</h6>
-                                            <h6 class="lecture-location">공학1관 102</h6>
-                                        </div>
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
-                                            <i class="material-icons ic-lecture-noti">assignment</i>
-                                            <span class="lecture-noti-title">과제 제목 텍스트</span>
-                                        </div>
-
-                                    </a>
-                                </li>
-
-                                <li class="lecture-time hr-12" data-event="lecture-05">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title">알고리즘</h6>
-                                            <h6 class="lecture-location">공학1관 102</h6>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="lecture-time hr-15" data-event="lecture-08">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title">데이터베이스</h6>
-                                            <h6 class="lecture-location">공학1관 102</h6>
-                                        </div>
-                                    </a>
-                                </li>
+                            <ul id="thu-line">
 
                             </ul>
                         </li>
@@ -247,28 +151,8 @@
                                 <h4 class="day">Fri</h4>
                             </div>
 
-                            <ul>
-                                <li class="lecture-time hr-10" data-event="lecture-09">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title">데이터 통신</h6>
-                                            <h6 class="lecture-location">공학1관 102</h6>
-                                        </div>
-                                    </a>
-                                </li>
+                            <ul id="fri-line">
 
-                                <li class="lecture-time two-hr hr-12" data-event="lecture-10">
-                                    <a href="#">
-                                        <div class="lecture-info">
-                                            <h6 class="lecture-title">운영 체제</h6>
-                                            <h6 class="lecture-location">공학1관 102</h6>
-                                        </div>
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
-                                            <i class="material-icons ic-lecture-noti">assignment</i>
-                                            <span class="lecture-noti-title">과제 제목 텍스트</span>
-                                        </div>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -297,7 +181,7 @@
                     </li>
                     <li class="lecture-code">
                         <i class="material-icons ic-lecture-info">code</i>
-                        <span>교과목 코드 : {4}</span>
+                        <span>교과목 코드 : <span id="popup-code-{7}">{4}</span></span>
                     </li>
                     <li class="lecture-code">
                         <i class="material-icons ic-lecture-info">school</i>
@@ -316,7 +200,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal">취소</button>
-                <button type="button" class="btn btn-primary">과목 등록하기</button>
+                <button type="button" class="btn btn-primary" id="btn-primary" data-dismiss="modal">과목 등록하기</button>
             </div>
         </div>
     </div>
@@ -340,6 +224,21 @@
                 </ul>
             </li>
         </ul>
+</script>
+
+<script type="text/template" id="lecture-timeline-script">
+    <li class="lecture-time {0} hr-{1}" data-event="lecture-{2}">
+       <a href="#">
+           <div class="lecture-info">
+               <h6 class="lecture-title">{3}</h6>
+               <h6 class="lecture-location">{4}</h6>
+           </div>
+           <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
+               <i class="material-icons ic-lecture-noti">assignment</i>
+               <span class="lecture-noti-title">{5}</span>
+           </div>
+       </a>
+   </li>
 </script>
 
 <div class="modal fade" id="modal-lecture-task" role="dialog" aria-hidden="true">
@@ -418,7 +317,7 @@
         <label for="message-text" class="col-form-label">설명</label>
         <textarea class="form-control" id="message-text" placeholder="설명 추가"></textarea>
     </div>
-    <button type="button" class="btn btn-primary btn-save">등main록</button>
+    <button type="button" class="btn btn-primary btn-save">등록</button>
 </div>
 <script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

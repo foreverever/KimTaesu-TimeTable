@@ -21,7 +21,7 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model) {
         log.debug("HOME!!");
-        List<Lecture> lectures = lectureService.findAll();
+        List<Lecture> lectures = lectureService.findByRegistered();
 
         model.addAttribute("lectures", lectures);
         return "/index";

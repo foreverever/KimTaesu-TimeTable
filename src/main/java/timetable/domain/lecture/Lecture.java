@@ -32,6 +32,8 @@ public class Lecture {
     @OneToMany
     private List<Memo> memos;
 
+    private boolean registered = false;
+
     public long getId() {
         return id;
     }
@@ -112,4 +114,11 @@ public class Lecture {
         return endTime.format(DateTimeFormatter.ofPattern("HH:mm"));
     }
 
+    public boolean isRegistered() {
+        return registered;
+    }
+
+    public void setRegistered(boolean registered) {
+        this.registered = registered;
+    }
 }

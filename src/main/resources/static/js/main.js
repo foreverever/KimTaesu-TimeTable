@@ -1,5 +1,6 @@
 $('.card-lecture').click(popupLecture);
 
+var lectureId;
 function popupLecture(e) {
   e.preventDefault();
   console.log("클릭!!");
@@ -13,9 +14,60 @@ function popupLecture(e) {
       error : onError,
       success : function(data, status, jqXHR) {
         var template = $('#modal-lecture-info-script').html();
-        var completedTemplate = template.format(data.name, data.formattedStartTime, data.formattedEndTime, data.dates, data.code, data.professor, data.location);
+        var completedTemplate = template.format(data.name, data.formattedStartTime, data.formattedEndTime, data.dates, data.code, data.professor, data.location, data.id);
         $(completedTemplate).modal('show');
+        lectureId=data.id;
     }
+  })
+}
+
+$(document).on('click', '#btn-primary', registerLecture);
+
+var map = new Map();
+map.set("월","mon-line");
+map.set("화","tue-line");
+map.set("수","web-line");
+map.set("목","thu-line");
+map.set("금","fri-line");
+
+function registerLecture(e) {
+  e.preventDefault();
+  console.log(lectureId);
+  console.log("강의 등록 클릭!");
+  var code = $('#popup-code-'+lectureId).text();
+  console.log(code);
+  var url = "/api/lectures/code/"+code;
+  console.log(url);
+
+  $.ajax({
+      type : 'get',
+      url : url,
+      data : code,
+      dataType : 'json',
+      error : onError,
+      success : function(data, status, jqXHR) {
+      console.log(data);
+         var startHour = data.formattedStartTime.substr(0,2);
+         var time = data.formattedEndTime.substr(0,2) - startHour;
+         var lectureNum = data.code.substr(7);
+         console.log(time);
+         var template = $('#lecture-timeline-script').html();
+
+         if(data.dates.length>=2) {
+            var first = map.get(data.dates[0]);
+            var second = map.get(data.dates[1]);
+            var completedTemplate = template.format("two-hr", startHour, lectureNum, data.name, data.location, data.memos);
+
+            $('#' + first).append(completedTemplate);
+            $('#' + second).append(completedTemplate);
+         }
+         else {
+            var first = map.get(data.dates[0]);
+            var completedTemplate = template.format("", startHour, lectureNum, data.name, data.location, data.memos);
+            $('#' + first).append(completedTemplate);
+         }
+            $('.lecture-time > a').click(popupLectureTask);
+      }
   })
 }
 
@@ -45,9 +97,12 @@ function goSearch(e){
   })
 }
 
-$('.lecture-time > a').click(function () {
+$('.lecture-time > a').click(popupLectureTask);
+
+
+function popupLectureTask() {
   $('#modal-lecture-task').modal('show');
-});
+}
 
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
