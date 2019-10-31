@@ -581,3 +581,10 @@ ol, ul {
 .popover-body .btn-save {
   margin-top: 1rem;
   margin-bottom: 0.5rem; }
+#modal-lecture-memo{
+     z-index: 2000;
+     vertical-align: middle;
+     height: 70%;
+     margin-top: 9rem;
+     width: 99%;
+}

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import timetable.domain.lecture.Lecture;
 import timetable.domain.lecture.LectureRepository;
+import timetable.domain.lecture.memo.Memo;
 
 import java.util.List;
 
@@ -40,5 +41,13 @@ public class LectureService {
 
     public List<Lecture> findDayLectures(String weekOfDay) {
         return lectureRepository.findByRegisteredAndDatesContaining(true, weekOfDay);
+    }
+
+    @Transactional
+    public Memo addMemo(long lectureId, Memo memo) {
+        Lecture lecture = lectureRepository.findById(lectureId)
+                .orElseThrow(RuntimeException::new);
+        lecture.addMemo(memo);
+        return memo;
     }
 }

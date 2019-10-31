@@ -1,5 +1,7 @@
 package timetable.domain.lecture;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import timetable.domain.lecture.memo.Memo;
 import timetable.support.utils.LectureUtils;
 
@@ -30,7 +32,8 @@ public class Lecture {
     @Column
     private LocalDateTime endTime;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Memo> memos;
 
     private boolean registered = false;
@@ -138,5 +141,25 @@ public class Lecture {
 
     public void register() {
         this.registered = true;
+    }
+
+    public void addMemo(Memo memo) {
+        memo.setLecture(this);
+        this.memos.add(memo);
+    }
+
+    @Override
+    public String toString() {
+        return "Lecture{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", professor='" + professor + '\'' +
+                ", location='" + location + '\'' +
+                ", dates='" + dates + '\'' +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", registered=" + registered +
+                '}';
     }
 }

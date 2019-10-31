@@ -49,4 +49,4 @@ INSERT INTO lecture (id, code, registered, name, professor, location, dates, sta
 INSERT INTO lecture (id, code, registered, name, professor, location, dates, start_time, end_time) VALUES (49, 'PG1807-49', false, '사회복지개론','최예원','A동618', '화수' ,TIME('10:00:00'),TIME('12:00:00'));
 INSERT INTO lecture (id, code, registered, name, professor, location, dates, start_time, end_time) VALUES (50, 'PG1807-50', false, '국제관계론','김영미','A동415', '목금' ,TIME('09:00:00'),TIME('10:00:00'));
 
-INSERT INTO memo (id, lecture_id, contents) VALUES (1,1,'메모입니다.');
+INSERT INTO memo (id, lecture_id, title, contents) VALUES (1, 1, '메모 제목', '메모 내용.');

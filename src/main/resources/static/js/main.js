@@ -112,28 +112,75 @@ function popupLectureTask(e) {
       dataType : 'json',
       error : onError,
       success : function(data, status, jqXHR) {
+        var memoList = "";
+        console.log(data);
+        console.log(data.memos);
+
+        for(var i = 0; i<data.memos.length; i++){
+            var memoTemplate = $('#modal-list-script').html();
+            memoList+= memoTemplate.format(data.memos[i].title, data.memos[i].contents);
+        }
+        //팝업창에 메모 출력하게 끔
+        console.log(memoList);
         var template = $('#modal-lecture-task-script').html();
-        var completedTemplate = template.format(data.name, data.formattedStartTime, data.formattedEndTime, data.dates, data.code, data.professor, data.location, data.id);
+        var completedTemplate = template.format(data.name, data.formattedStartTime, data.formattedEndTime, data.dates, data.code, data.professor, data.location, data.id, memoList);
+
         $(completedTemplate).modal('show');
+        $(document).on('click', '.btn-light-primary', function () {
+            lectureIdInMemo = data.id;
+            return $('#modal-lecture-memo').modal('show');
+        });
+        //tooltip 활성 (메모 내용)
+        $(document).on('mouseover','.memo-list', function() {
+             return $('[data-toggle="tooltip"]').tooltip();
+        });
     }
   })
+}
+
+var lectureIdInMemo;
+$(document).on('click', '#btn-save-memo', addMemo);
+
+function addMemo(e){
+    e.preventDefault();
+    console.log("메모!!");
+    var json = new Object();
+    json.title = $('#recipient-name').val();    //popover 사용시, id로 가져올려고 했으나, 빈 스트링을 가져옴.. 입력값이 없음.. 왜지?? -> modal창 대체
+    json.contents = $('#message-text').val();
+    var url = $('#add-memo').attr('action') +  lectureIdInMemo + '/memos';
+
+    console.log(json);
+
+    $.ajax({
+        type : 'post',
+        url : url,
+        data : JSON.stringify(json),
+        contentType : "application/json",
+        dataType : 'json',
+        error : onError,
+        success : function(data, status, jqXHR) {
+            console.log(data);
+            location.reload();
+        }
+    })
+
 }
 
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
-$(function () {
-  $('[data-toggle="popover"]').popover({
-    container: 'body',
-    html: true,
-    placement: 'right',
-    sanitize: false,
-    content: function () {
-    return $("#PopoverContent").html();
-    }
-  });
-});
+//$(function () {
+//  $('[data-toggle="popover"]').popover({
+//    container: 'body',
+//    html: true,
+//    placement: 'right',
+//    sanitize: false,
+//    content: function () {
+//    return $("#PopoverContent").html();
+//    }
+//  });
+//});
 
 
 //에러 메세지

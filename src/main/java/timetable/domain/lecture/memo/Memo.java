@@ -1,5 +1,6 @@
 package timetable.domain.lecture.memo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import timetable.domain.lecture.Lecture;
 
 import javax.persistence.*;
@@ -12,10 +13,14 @@ public class Memo {
     private long id;
 
     @Column
+    private String title;
+
+    @Column
     private String contents;
 
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_memo_lecture"))
+    @JsonBackReference
     private Lecture lecture;
 
     public long getId() {
@@ -40,5 +45,23 @@ public class Memo {
 
     public void setContents(String contents) {
         this.contents = contents;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return "Memo{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", contents='" + contents + '\'' +
+                ", lecture=" + lecture +
+                '}';
     }
 }

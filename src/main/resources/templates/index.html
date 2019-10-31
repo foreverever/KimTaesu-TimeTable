@@ -94,8 +94,12 @@
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
                                         </div>
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
+                                        {{#memos}}
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title={{contents}}>
+                                            <i class="material-icons ic-lecture-noti">assignment</i>
+                                            <span class="lecture-noti-title">{{title}}</span>
                                         </div>
+                                        {{/memos}}
                                     </a>
                                 </li>
                                 {{/monLectures}}
@@ -127,8 +131,12 @@
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
                                         </div>
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
+                                        {{#memos}}
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title={{contents}}>
+                                            <i class="material-icons ic-lecture-noti">assignment</i>
+                                            <span class="lecture-noti-title">{{title}}</span>
                                         </div>
+                                        {{/memos}}
                                     </a>
                                 </li>
                                 {{/tueLectures}}
@@ -147,8 +155,12 @@
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
                                         </div>
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
+                                        {{#memos}}
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title={{contents}}>
+                                            <i class="material-icons ic-lecture-noti">assignment</i>
+                                            <span class="lecture-noti-title">{{title}}</span>
                                         </div>
+                                        {{/memos}}
                                     </a>
                                 </li>
                                 {{/wedLectures}}
@@ -167,8 +179,12 @@
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
                                         </div>
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
+                                        {{#memos}}
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title={{contents}}>
+                                            <i class="material-icons ic-lecture-noti">assignment</i>
+                                            <span class="lecture-noti-title">{{title}}</span>
                                         </div>
+                                        {{/memos}}
                                     </a>
                                 </li>
                                 {{/thuLectures}}
@@ -187,8 +203,12 @@
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
                                         </div>
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
+                                        {{#memos}}
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title={{contents}}>
+                                            <i class="material-icons ic-lecture-noti">assignment</i>
+                                            <span class="lecture-noti-title">{{title}}</span>
                                         </div>
+                                        {{/memos}}
                                     </a>
                                 </li>
                                 {{/friLectures}}
@@ -316,15 +336,7 @@
                 <div class="lecture-memo">
                     <h5 class="memo-header">메모</h5>
                     <ul>
-                        <li class="memo-list">
-                            <!--<div class="memo-content" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">-->
-                                <!--<i class="material-icons ic-lecture-noti">assignment</i>-->
-                                <!--<span class="lecture-noti-title">과제 제목 텍스트</span>-->
-                            <!--</div>-->
-                            <div class="memo-btn">
-                                <a href=""><i class="material-icons ic-lecture-noti">delete</i></a>
-                            </div>
-                        </li>
+                        {8}
                     </ul>
                 </div>
             </div>
@@ -345,19 +357,63 @@
 </div>
 </script>
 
-<div id="PopoverContent" style="display: none;">
-    <h5 class="schedule-title">메모 등록하기</h5>
-    <div class="form-group">
-        <label class="col-form-label">제목
-            <input type="text" class="form-control" id="recipient-name" placeholder="제목 추가">
-        </label>
+<script type="text/template" id="modal-list-script">
+    <li class="memo-list">
+        <div class="memo-content" data-toggle="tooltip" data-placement="top" title="" data-original-title={1}>
+            <i class="material-icons ic-lecture-noti">assignment</i>
+            <span class="lecture-noti-title">{0}</span>
+        </div>
+        <div class="memo-btn">
+            <a href=""><i class="material-icons ic-lecture-noti">delete</i></a>
+        </div>
+    </li>
+</script>
+
+<div class="modal fade" id="modal-lecture-memo" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <h5 class="schedule-title">메모 등록하기</h5>
+                    <div class="form-group">
+                        <label class="col-form-label">제목
+                            <input type="text" class="form-control" id="recipient-name" placeholder="제목 추가">
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">설명</label>
+                        <textarea class="form-control" id="message-text" placeholder="설명 추가"></textarea>
+                    </div>
+                <div class="modal-footer">
+                    <form action="/api/lectures/" method="post" id="add-memo">
+                        <button type="submit" class="btn btn-primary btn-save" id="btn-save-memo" data-dismiss="modal">등록</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="message-text" class="col-form-label">설명</label>
-        <textarea class="form-control" id="message-text" placeholder="설명 추가"></textarea>
-    </div>
-    <button type="button" class="btn btn-primary btn-save">등록</button>
 </div>
+
+<!--<div id="PopoverContent" style="display: none;" role="dialog" aria-hidden="true">-->
+    <!--<h5 class="schedule-title">메모 등록하기</h5>-->
+    <!--<form action="/api/lectures" method="post" id="add-memo">-->
+    <!--<div class="form-group">-->
+        <!--<label class="col-form-label">제목-->
+            <!--<input type="text" class="form-control" id="recipient-name" placeholder="제목 추가">-->
+        <!--</label>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<label for="message-text" class="col-form-label">설명</label>-->
+        <!--<textarea class="form-control" id="message-text" placeholder="설명 추가"></textarea>-->
+    <!--</div>-->
+    <!--<button type="submit" class="btn btn-primary btn-save" id="btn-save-memo">등록</button>-->
+    <!--</form>-->
+<!--</div>-->
+
 <script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
