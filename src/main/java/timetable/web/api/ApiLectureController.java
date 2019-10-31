@@ -37,6 +37,7 @@ public class ApiLectureController {
     public Lecture register(@PathVariable String code) {
         Lecture lecture = lectureService.findByCode(code);
         log.debug("lecture : {}", lecture);
+        lectureService.register(lecture);
         return lecture;
     }
 

@@ -19,10 +19,6 @@ public class LectureService {
     @Autowired
     private MemoRepository memoRepository;
 
-    public List<Lecture> findAll() {
-        return lectureRepository.findAll();
-    }
-
     public Lecture findById(long id) {
         return lectureRepository.findById(id)
                 .orElseThrow(RuntimeException::new);
@@ -32,14 +28,8 @@ public class LectureService {
         return lectureRepository.findBySearch(search);
     }
 
-    @Transactional
     public Lecture findByCode(String code) {
-        Lecture lecture = lectureRepository.findByCode(code);
-        List<Lecture> registeredLectures = lectureRepository.findByRegistered();
-        if(lecture.isPossibleRegister(registeredLectures)){
-            lecture.register();
-        }
-        return lecture;
+        return lectureRepository.findByCode(code);
     }
 
     public List<Lecture> findByNotRegistered() {
@@ -70,5 +60,13 @@ public class LectureService {
         Lecture lecture = lectureRepository.findById(id)
                 .orElseThrow(RuntimeException::new);
         lecture.delete();
+    }
+
+    @Transactional
+    public void register(Lecture lecture) {
+        List<Lecture> registeredLectures = lectureRepository.findByRegistered();
+        if(lecture.isPossibleRegister(registeredLectures)){
+            lecture.register();
+        }
     }
 }
