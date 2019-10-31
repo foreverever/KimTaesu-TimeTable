@@ -1,4 +1,4 @@
-INSERT INTO lecture (id, code, registered, name, professor, location, dates, start_time, end_time) VALUES (1, 'PG1807-01', false, 'WorldWideEnglish1','김영순','A동403', '월금' ,TIME('10:00:00'),TIME('12:00:00'));
+INSERT INTO lecture (id, code, registered, name, professor, location, dates, start_time, end_time) VALUES (1, 'PG1807-01', true, 'WorldWideEnglish1','김영순','A동403', '월금' ,TIME('10:00:00'),TIME('12:00:00'));
 INSERT INTO lecture (id, code, registered, name, professor, location, dates, start_time, end_time) VALUES (2, 'PG1807-02', false, '커뮤니케이션영어1','이영희','A동203', '월' ,TIME('09:00:00'),TIME('10:00:00'));
 INSERT INTO lecture (id, code, registered, name, professor, location, dates, start_time, end_time) VALUES (3, 'PG1807-03', false, '대학수학1','박정희','B동102', '화' ,TIME('13:00:00'),TIME('15:00:00'));
 INSERT INTO lecture (id, code, registered, name, professor, location, dates, start_time, end_time) VALUES (4, 'PG1807-04', false, 'TOEIC1','최옥순','A동302', '수' ,TIME('15:00:00'),TIME('16:00:00'));

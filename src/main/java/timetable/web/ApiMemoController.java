@@ -23,4 +23,9 @@ public class ApiMemoController {
         log.debug("memo : {}", currentMemo.toString());
         return currentMemo;
     }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable long lectureId, @PathVariable long id) {
+        lectureService.deleteMemo(lectureId, id);
+    }
 }

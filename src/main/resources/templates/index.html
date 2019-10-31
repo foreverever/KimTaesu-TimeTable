@@ -348,7 +348,7 @@
                     </button>
                 </div>
                 <div class="right">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">확인</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal" id="btn-ok">확인</button>
                     <button type="button" class="btn btn-danger" >과목 삭제하기</button>
                 </div>
             </div>
@@ -364,7 +364,8 @@
             <span class="lecture-noti-title">{0}</span>
         </div>
         <div class="memo-btn">
-            <a href=""><i class="material-icons ic-lecture-noti">delete</i></a>
+            <!--<input type="hidden" name="_method" value="DELETE">-->
+            <a href="/api/lectures/{2}/memos/{3}"><i class="material-icons ic-lecture-noti" id="memo-delete">delete</i></a>
         </div>
     </li>
 </script>

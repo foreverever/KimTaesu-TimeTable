@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import timetable.domain.lecture.Lecture;
 import timetable.domain.lecture.LectureRepository;
 import timetable.domain.lecture.memo.Memo;
+import timetable.domain.lecture.memo.MemoRepository;
 
 import java.util.List;
 
@@ -14,6 +15,9 @@ public class LectureService {
 
     @Autowired
     private LectureRepository lectureRepository;
+
+    @Autowired
+    private MemoRepository memoRepository;
 
     public List<Lecture> findAll() {
         return lectureRepository.findAll();
@@ -49,5 +53,12 @@ public class LectureService {
                 .orElseThrow(RuntimeException::new);
         lecture.addMemo(memo);
         return memo;
+    }
+
+    @Transactional
+    public void deleteMemo(long lectureId, long id) {
+        Lecture lecture = lectureRepository.findById(lectureId)
+                .orElseThrow(RuntimeException::new);
+        lecture.deleteMemo(id);
     }
 }

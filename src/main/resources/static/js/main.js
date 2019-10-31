@@ -116,10 +116,12 @@ function popupLectureTask(e) {
         console.log(data);
         console.log(data.memos);
 
+        //메모 리스트 출력화면 구성
         for(var i = 0; i<data.memos.length; i++){
             var memoTemplate = $('#modal-list-script').html();
-            memoList+= memoTemplate.format(data.memos[i].title, data.memos[i].contents);
+            memoList+= memoTemplate.format(data.memos[i].title, data.memos[i].contents, data.id, data.memos[i].id);
         }
+
         //팝업창에 메모 출력하게 끔
         console.log(memoList);
         var template = $('#modal-lecture-task-script').html();
@@ -164,6 +166,26 @@ function addMemo(e){
         }
     })
 
+}
+
+$(document).on('click', '#memo-delete', deleteMemo);
+
+function deleteMemo(e) {
+    e.preventDefault();
+    console.log("메모 삭제 버튼 클릭!");
+    var deleteBtn = $(this);
+    var url = deleteBtn.parent('a').attr('href');
+    console.log(url);
+
+    $.ajax({
+        type : 'delete',
+        url : url,
+        error : onError,
+        success : function(data, status, jqXHR) {
+            deleteBtn.closest('li').remove();
+//            $('#btn-ok').click(location.reload());  //확인버튼 누르면 새로고침 하고픈데,, 지우기버튼 누르면 새로고침함 대체??왜
+        }
+    })
 }
 
 $(function () {

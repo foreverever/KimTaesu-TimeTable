@@ -162,4 +162,13 @@ public class Lecture {
                 ", registered=" + registered +
                 '}';
     }
+
+    public void deleteMemo(long id) {
+        for (Memo memo : memos) {
+            if(memo.getId()==id) {
+                memos.remove(memo);
+                return;
+            }
+        }
+    }
 }
