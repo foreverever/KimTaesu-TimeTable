@@ -61,4 +61,11 @@ public class LectureService {
                 .orElseThrow(RuntimeException::new);
         lecture.deleteMemo(id);
     }
+
+    @Transactional
+    public void delete(long id) {
+        Lecture lecture = lectureRepository.findById(id)
+                .orElseThrow(RuntimeException::new);
+        lecture.delete();
+    }
 }

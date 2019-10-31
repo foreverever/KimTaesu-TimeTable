@@ -169,7 +169,6 @@ function addMemo(e){
 }
 
 $(document).on('click', '#memo-delete', deleteMemo);
-
 function deleteMemo(e) {
     e.preventDefault();
     console.log("메모 삭제 버튼 클릭!");
@@ -186,6 +185,28 @@ function deleteMemo(e) {
 //            $('#btn-ok').click(location.reload());  //확인버튼 누르면 새로고침 하고픈데,, 지우기버튼 누르면 새로고침함 대체??왜
         }
     })
+}
+
+$(document).on('click', '.btn-danger', deleteLecture);
+
+function deleteLecture(e) {
+    e.preventDefault();
+    console.log("과목 삭제 버튼 클릭!!");
+    var url = $(this).parent().attr('action');
+    console.log(url);
+    var deleteConfirm = confirm("해당 과목을 삭제하시겠습니까?");
+
+    if(deleteConfirm) {
+        $.ajax({
+                type : 'delete',
+                url : url,
+                error : onError,
+                success : function(data, status, jqXHR) {
+                    alert("해당 과목이 삭제되었습니다.");
+                    location.reload();
+                }
+            })
+    }
 }
 
 $(function () {

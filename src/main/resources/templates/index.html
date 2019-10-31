@@ -349,7 +349,10 @@
                 </div>
                 <div class="right">
                     <button type="button" class="btn btn-light" data-dismiss="modal" id="btn-ok">확인</button>
-                    <button type="button" class="btn btn-danger" >과목 삭제하기</button>
+                    <form action="/api/lectures/{7}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="button" class="btn btn-danger" >과목 삭제하기</button>
+                    </form>
                 </div>
             </div>
         </div>

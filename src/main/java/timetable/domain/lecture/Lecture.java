@@ -171,4 +171,8 @@ public class Lecture {
             }
         }
     }
+
+    public void delete() {
+        registered = false;
+    }
 }

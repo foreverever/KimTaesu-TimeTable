@@ -39,4 +39,10 @@ public class ApiLectureController {
         log.debug("lecture : {}", lecture);
         return lecture;
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable long id) {
+        log.debug("deletedLectureId : {}", id);
+        lectureService.delete(id);
+    }
 }
