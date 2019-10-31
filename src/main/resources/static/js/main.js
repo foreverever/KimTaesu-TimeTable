@@ -45,7 +45,11 @@ function registerLecture(e) {
       dataType : 'json',
       error : onError,
       success : function(data, status, jqXHR) {
-      console.log(data);
+         console.log(data);
+         if(data.message) {
+            alert(data.message);
+            return;
+         }
          var startHour = data.formattedStartTime.substr(0,2);
          var time = data.formattedEndTime.substr(0,2) - startHour;
          var lectureNum = data.code.substr(7);
@@ -55,17 +59,23 @@ function registerLecture(e) {
          if(data.dates.length>=2) {
             var first = map.get(data.dates[0]);
             var second = map.get(data.dates[1]);
-            var completedTemplate = template.format("two-hr", startHour, lectureNum, data.name, data.location, data.memos, data.id);
-
+            if(time >= 2) {
+                 var completedTemplate = template.format("two-hr", startHour, lectureNum, data.name, data.location, data.memos, data.id);
+            }
+            else var completedTemplate = template.format("", startHour, lectureNum, data.name, data.location, data.memos, data.id);
             $('#' + first).append(completedTemplate);
             $('#' + second).append(completedTemplate);
          }
          else {
             var first = map.get(data.dates[0]);
-            var completedTemplate = template.format("", startHour, lectureNum, data.name, data.location, data.memos, data.id);
+            if(time >= 2) {
+                var completedTemplate = template.format("two-hr", startHour, lectureNum, data.name, data.location, data.memos, data.id);
+            }
+            else var completedTemplate = template.format("", startHour, lectureNum, data.name, data.location, data.memos, data.id);
             $('#' + first).append(completedTemplate);
          }
             $('.lecture-time > a').click(popupLectureTask);
+            location.reload();
       }
   })
 }
@@ -172,19 +182,23 @@ $(document).on('click', '#memo-delete', deleteMemo);
 function deleteMemo(e) {
     e.preventDefault();
     console.log("메모 삭제 버튼 클릭!");
+
     var deleteBtn = $(this);
     var url = deleteBtn.parent('a').attr('href');
     console.log(url);
 
-    $.ajax({
-        type : 'delete',
-        url : url,
-        error : onError,
-        success : function(data, status, jqXHR) {
-            deleteBtn.closest('li').remove();
-//            $('#btn-ok').click(location.reload());  //확인버튼 누르면 새로고침 하고픈데,, 지우기버튼 누르면 새로고침함 대체??왜
-        }
-    })
+    var deleteConfirm = confirm("해당 메모를 삭제하시겠습니까?");
+    if(deleteConfirm) {
+        $.ajax({
+                type : 'delete',
+                url : url,
+                error : onError,
+                success : function(data, status, jqXHR) {
+                    deleteBtn.closest('li').remove();
+        //            $('#btn-ok').click(location.reload());  //확인버튼 누르면 새로고침 하고픈데,, 지우기버튼 누르면 새로고침함 대체??왜
+                }
+            })
+    }
 }
 
 $(document).on('click', '.btn-danger', deleteLecture);
@@ -194,8 +208,8 @@ function deleteLecture(e) {
     console.log("과목 삭제 버튼 클릭!!");
     var url = $(this).parent().attr('action');
     console.log(url);
-    var deleteConfirm = confirm("해당 과목을 삭제하시겠습니까?");
 
+    var deleteConfirm = confirm("해당 과목을 삭제하시겠습니까?");
     if(deleteConfirm) {
         $.ajax({
                 type : 'delete',

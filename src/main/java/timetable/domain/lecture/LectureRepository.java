@@ -12,7 +12,10 @@ public interface LectureRepository extends JpaRepository<Lecture, Long> {
     Lecture findByCode(String code);
 
     @Query("select a from Lecture a where a.registered = false")
-    List<Lecture> findByRegistered();
+    List<Lecture> findByNotRegistered();
 
     List<Lecture> findByRegisteredAndDatesContaining(boolean registered, String dates);
+
+    @Query("select a from Lecture a where a.registered = true")
+    List<Lecture> findByRegistered();
 }

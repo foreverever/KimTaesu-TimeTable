@@ -23,7 +23,7 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model) {
         log.debug("HOME!!");
-        List<Lecture> lectures = lectureService.findByRegistered();
+        List<Lecture> lectures = lectureService.findByNotRegistered();
         List<Lecture> monLectures = lectureService.findDayLectures(MON);
         List<Lecture> tueLectures = lectureService.findDayLectures(TUE);
         List<Lecture> wedLectures = lectureService.findDayLectures(WED);

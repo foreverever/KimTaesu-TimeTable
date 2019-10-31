@@ -35,12 +35,15 @@ public class LectureService {
     @Transactional
     public Lecture findByCode(String code) {
         Lecture lecture = lectureRepository.findByCode(code);
-        lecture.register();
+        List<Lecture> registeredLectures = lectureRepository.findByRegistered();
+        if(lecture.isPossibleRegister(registeredLectures)){
+            lecture.register();
+        }
         return lecture;
     }
 
-    public List<Lecture> findByRegistered() {
-        return lectureRepository.findByRegistered();
+    public List<Lecture> findByNotRegistered() {
+        return lectureRepository.findByNotRegistered();
     }
 
     public List<Lecture> findDayLectures(String weekOfDay) {

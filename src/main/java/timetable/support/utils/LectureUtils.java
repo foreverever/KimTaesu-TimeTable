@@ -13,7 +13,15 @@ public class LectureUtils {
         return code.substring(7);
     }
 
-    public static String getHourOfStartTime(String formattedStartTime) {
-        return formattedStartTime.substring(0, 2);
+    public static String getHourOfTime(String formattedTime) {
+        return formattedTime.substring(0, 2);
+    }
+
+    public static int getHourOfTimeToInteger(String formattedTime) {
+        return Integer.parseInt(getHourOfTime(formattedTime));
+    }
+
+    public static int mulStartTimeEndTime(String startTime, String endTime) {
+        return getHourOfTimeToInteger(endTime) - getHourOfTimeToInteger(startTime);
     }
 }

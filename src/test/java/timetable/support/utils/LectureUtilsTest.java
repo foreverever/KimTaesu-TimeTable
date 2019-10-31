@@ -24,6 +24,6 @@ public class LectureUtilsTest {
 
     @Test
     public void getHourOfStartTime() {
-        assertThat(LectureUtils.getHourOfStartTime(startTime)).isEqualTo("12");
+        assertThat(LectureUtils.getHourOfTime(startTime)).isEqualTo("12");
     }
 }

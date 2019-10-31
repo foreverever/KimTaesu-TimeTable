@@ -1,14 +1,16 @@
 package timetable.domain.lecture;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import timetable.domain.lecture.memo.Memo;
+import timetable.security.exception.CannotRegisterLecture;
 import timetable.support.utils.LectureUtils;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+
+import static timetable.support.utils.LectureUtils.*;
 
 @Entity
 public class Lecture {
@@ -131,12 +133,12 @@ public class Lecture {
     }
 
     public String getHour() {
-        if (dates.length() >= 2) return LectureUtils.TWO;
+        if (mulStartTimeEndTime(getFormattedStartTime(), getFormattedEndTime()) >= 2) return TWO;
         return "";
     }
 
-    public String getHourOfStartTime(){
-        return LectureUtils.getHourOfStartTime(getFormattedStartTime());
+    public String getHourOfStartTime() {
+        return LectureUtils.getHourOfTime(getFormattedStartTime());
     }
 
     public void register() {
@@ -165,7 +167,7 @@ public class Lecture {
 
     public void deleteMemo(long id) {
         for (Memo memo : memos) {
-            if(memo.getId()==id) {
+            if (memo.getId() == id) {
                 memos.remove(memo);
                 return;
             }
@@ -174,5 +176,24 @@ public class Lecture {
 
     public void delete() {
         registered = false;
+    }
+
+    public boolean isPossibleRegister(List<Lecture> registeredLectures) {
+        for (Lecture registeredLecture : registeredLectures) {
+            if (!isDuplicateDate(registeredLecture)) return true;
+            if ((this.startTime.isEqual(registeredLecture.startTime) && this.endTime.isEqual(registeredLecture.endTime))
+                    || (this.startTime.isAfter(registeredLecture.startTime) && this.startTime.isBefore(registeredLecture.endTime))
+                    || (this.endTime.isAfter(registeredLecture.startTime) && this.endTime.isBefore(registeredLecture.endTime)))
+                throw new CannotRegisterLecture("과목이 겹칩니다.");
+        }
+        return true;
+    }
+
+    private boolean isDuplicateDate(Lecture registeredLecture) {
+        if (registeredLecture.dates.length() >= 2) {
+            return this.dates.contains("" + registeredLecture.dates.charAt(0))
+                    || this.dates.contains("" + registeredLecture.dates.charAt(1));
+        }
+        return this.dates.contains("" + registeredLecture.dates.charAt(0));
     }
 }
