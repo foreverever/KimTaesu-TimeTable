@@ -40,6 +40,13 @@ public class Lecture {
 
     private boolean registered = false;
 
+    public Lecture(String dates) {
+        this.dates = dates;
+    }
+
+    public Lecture() {
+    }
+
     public long getId() {
         return id;
     }
@@ -189,7 +196,7 @@ public class Lecture {
         return true;
     }
 
-    private boolean isDuplicateDate(Lecture registeredLecture) {
+    boolean isDuplicateDate(Lecture registeredLecture) {
         if (registeredLecture.dates.length() >= 2) {
             return this.dates.contains("" + registeredLecture.dates.charAt(0))
                     || this.dates.contains("" + registeredLecture.dates.charAt(1));
