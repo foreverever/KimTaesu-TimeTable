@@ -63,6 +63,14 @@ public class LectureTest {
     }
 
     @Test
+    public void isDuplicateDate_2() {
+        lecture1.setDates("화");
+        lecture2.setDates("화수");
+        assertThat(lecture1.isDuplicateDate(lecture2)).isTrue();
+        assertThat(lecture2.isDuplicateDate(lecture1)).isTrue();
+    }
+
+    @Test
     public void isSameDate() {
         assertThat(lecture1.isDuplicateDate(lecture2)).isTrue();
         assertThat(lecture2.isDuplicateDate(lecture1)).isTrue();

@@ -8,7 +8,9 @@ import timetable.support.utils.LectureUtils;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static timetable.support.utils.LectureUtils.*;
 
@@ -148,6 +150,10 @@ public class Lecture {
         return LectureUtils.getHourOfTime(getFormattedStartTime());
     }
 
+    private int getDatesSize() {
+        return this.dates.length();
+    }
+
     public void register() {
         this.registered = true;
     }
@@ -187,7 +193,7 @@ public class Lecture {
 
     public boolean isPossibleRegister(List<Lecture> registeredLectures) {
         for (Lecture registeredLecture : registeredLectures) {
-            if (!isDuplicateDate(registeredLecture)) return true;
+            if (!isDuplicateDate(registeredLecture)) continue;
             if ((this.startTime.isEqual(registeredLecture.startTime) && this.endTime.isEqual(registeredLecture.endTime))
                     || (this.startTime.isAfter(registeredLecture.startTime) && this.startTime.isBefore(registeredLecture.endTime))
                     || (this.endTime.isAfter(registeredLecture.startTime) && this.endTime.isBefore(registeredLecture.endTime)))
@@ -197,10 +203,10 @@ public class Lecture {
     }
 
     boolean isDuplicateDate(Lecture registeredLecture) {
-        if (registeredLecture.dates.length() >= 2) {
-            return this.dates.contains("" + registeredLecture.dates.charAt(0))
-                    || this.dates.contains("" + registeredLecture.dates.charAt(1));
-        }
-        return this.dates.contains("" + registeredLecture.dates.charAt(0));
+        Set<Character> check = new HashSet<>();
+        for (int i = 0; i < this.getDatesSize(); i++) check.add(this.dates.charAt(i));
+        for (int i = 0; i < registeredLecture.getDatesSize(); i++) check.add(registeredLecture.dates.charAt(i));
+
+        return check.size() != this.getDatesSize() + registeredLecture.getDatesSize();
     }
 }
