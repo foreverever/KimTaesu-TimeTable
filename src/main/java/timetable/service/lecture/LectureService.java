@@ -65,7 +65,7 @@ public class LectureService {
     @Transactional
     public void register(Lecture lecture) {
         List<Lecture> registeredLectures = lectureRepository.findByRegistered();
-        if(lecture.isPossibleRegister(registeredLectures)){
+        if (lecture.isPossibleRegister(registeredLectures)) {
             lecture.register();
         }
     }

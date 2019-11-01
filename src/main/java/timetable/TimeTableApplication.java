@@ -8,7 +8,7 @@ import org.springframework.stereotype.*;
 @Controller
 @SpringBootApplication
 public class TimeTableApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(TimeTableApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(TimeTableApplication.class, args);
+    }
 }

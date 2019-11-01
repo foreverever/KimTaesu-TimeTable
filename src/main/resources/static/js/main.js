@@ -5,8 +5,15 @@ map.set("수","web-line");
 map.set("목","thu-line");
 map.set("금","fri-line");
 var lectureId;
+var lectureIdInMemo;
 
 $('.card-lecture').click(popupLecture);
+$('.lecture-time > a').click(popupLectureTask);
+$(document).on('click', '#btn-primary', registerLecture);
+$(document).on('click', '#btn-save-memo', addMemo);
+$(document).on('click', '#memo-delete', deleteMemo);
+$(document).on('click', '.btn-danger', deleteLecture);
+
 
 function popupLecture(e) {
   e.preventDefault();
@@ -28,7 +35,6 @@ function popupLecture(e) {
   })
 }
 
-$(document).on('click', '#btn-primary', registerLecture);
 function registerLecture(e) {
   e.preventDefault();
   console.log(lectureId);
@@ -106,8 +112,6 @@ function goSearch(e){
   })
 }
 
-$('.lecture-time > a').click(popupLectureTask);
-
 function popupLectureTask(e) {
   e.preventDefault();
   console.log("클릭!!");
@@ -150,14 +154,11 @@ function popupLectureTask(e) {
   })
 }
 
-var lectureIdInMemo;
-$(document).on('click', '#btn-save-memo', addMemo);
-
 function addMemo(e){
     e.preventDefault();
     console.log("메모!!");
     var json = new Object();
-    json.title = $('#recipient-name').val();    //popover 사용시, id로 가져올려고 했으나, 빈 스트링을 가져옴.. 입력값이 없음.. 왜지?? -> modal창 대체
+    json.title = $('#recipient-name').val();
     json.contents = $('#message-text').val();
     var url = $('#add-memo').attr('action') +  lectureIdInMemo + '/memos';
 
@@ -178,7 +179,6 @@ function addMemo(e){
 
 }
 
-$(document).on('click', '#memo-delete', deleteMemo);
 function deleteMemo(e) {
     e.preventDefault();
     console.log("메모 삭제 버튼 클릭!");
@@ -195,13 +195,10 @@ function deleteMemo(e) {
                 error : onError,
                 success : function(data, status, jqXHR) {
                     deleteBtn.closest('li').remove();
-        //            $('#btn-ok').click(location.reload());  //확인버튼 누르면 새로고침 하고픈데,, 지우기버튼 누르면 새로고침함 대체??왜
                 }
             })
     }
 }
-
-$(document).on('click', '.btn-danger', deleteLecture);
 
 function deleteLecture(e) {
     e.preventDefault();
@@ -242,7 +239,7 @@ $(function () {
 
 //에러 메세지
 function onError(jqXHR, status, errorThrown) {
-    console.log(jqXHR.responseText);    //json값 다 보여줌 (키,밸류 모두다) ex) {"message":"아이디 또는 비밀번호가 다릅니다."}
+    console.log(jqXHR.responseText);    //json값 다 보여줌 (키,밸류 모두다)
     console.log(jqXHR);
     alert(jqXHR.responseJSON.message);  //예외처리에서 받은 리턴값(responseEntity<ErrorMessage>)의 json객체의 키(message)값의 value를 가져온다.
 }
