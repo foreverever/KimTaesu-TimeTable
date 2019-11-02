@@ -151,7 +151,7 @@ public class Lecture {
     }
 
     private int getDatesSize() {
-        return this.dates.length();
+        return dates.length();
     }
 
     public void register() {
@@ -194,9 +194,7 @@ public class Lecture {
     public boolean isPossibleRegister(List<Lecture> registeredLectures) {
         for (Lecture registeredLecture : registeredLectures) {
             if (!isDuplicateDate(registeredLecture)) continue;
-            if ((this.startTime.isEqual(registeredLecture.startTime) && this.endTime.isEqual(registeredLecture.endTime))
-                    || (this.startTime.isAfter(registeredLecture.startTime) && this.startTime.isBefore(registeredLecture.endTime))
-                    || (this.endTime.isAfter(registeredLecture.startTime) && this.endTime.isBefore(registeredLecture.endTime)))
+            if (this.isSameTime(registeredLecture) || this.isDuplicateTime(registeredLecture) || registeredLecture.isDuplicateTime(this))
                 throw new CannotRegisterLecture("과목이 겹칩니다.");
         }
         return true;
@@ -208,5 +206,14 @@ public class Lecture {
         for (int i = 0; i < registeredLecture.getDatesSize(); i++) check.add(registeredLecture.dates.charAt(i));
 
         return check.size() != this.getDatesSize() + registeredLecture.getDatesSize();
+    }
+
+    boolean isSameTime(Lecture lecture) {
+        return ((this.startTime.isEqual(lecture.startTime) && this.endTime.isEqual(lecture.endTime)));
+    }
+
+    boolean isDuplicateTime(Lecture lecture) {
+        return ((this.startTime.isAfter(lecture.startTime) && this.startTime.isBefore(lecture.endTime))
+                || (this.endTime.isAfter(lecture.startTime) && this.endTime.isBefore(lecture.endTime)));
     }
 }
