@@ -188,6 +188,7 @@ public class Lecture {
     }
 
     public void delete() {
+        memos.clear();
         registered = false;
     }
 
