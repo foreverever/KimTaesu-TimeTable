@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
@@ -17,17 +18,19 @@
     </section>
     <section class="section-nav">
         <form id="search-form" class="form-search" action="/api/lectures" method="get">
-            <input type="text" placeholder="강의 검색" class="form-control" id="search-contents"name ="search" onkeypress="if(event.keyCode==13){goSearch(event);}">
+            <input type="text" placeholder="강의 검색" class="form-control" id="search-contents" name="search"
+                   onkeypress="if(event.keyCode==13){goSearch(event);}">
             <span><i class="material-icons ic-search">search</i></span>
         </form>
         <ul class="list-lecture">
             {{#lectures}}
-            <li class="card-lecture" >
-                <a class="lecture-title" id = "lecture-title" href="/api/lectures/{{id}}">{{name}}</a>
+            <li class="card-lecture">
+                <a class="lecture-title" id="lecture-title" href="/api/lectures/{{id}}">{{name}}</a>
                 <h6 class="lecture-time">
                     <i class="material-icons ic-lecture-info">access_time</i>
                     <span>
-                        <span id="lecture-start-time">{{formattedStartTime}}</span> - <span id="lecture-end-time">{{formattedEndTime}}</span> | (<span id="lecture-dates">{{dates}}</span>)
+                        <span id="lecture-start-time">{{formattedStartTime}}</span> - <span id="lecture-end-time">{{formattedEndTime}}</span> | (<span
+                            id="lecture-dates">{{dates}}</span>)
                     </span>
                 </h6>
                 <ul class="list-lecture-info">
@@ -76,14 +79,16 @@
                             </div>
                             <ul id="mon-line">
                                 {{#monLectures}}
-                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
+                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}"
+                                    data-event="lecture-{{codeNum}}">
                                     <a href="/api/lectures/{{id}}">
                                         <div class="lecture-info">
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
                                         </div>
                                         {{#memos}}
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title={{contents}}>
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title=""
+                                             data-original-title={{contents}}>
                                             <i class="material-icons ic-lecture-noti">assignment</i>
                                             <span class="lecture-noti-title">{{title}}</span>
                                         </div>
@@ -100,14 +105,16 @@
                             </div>
                             <ul id="tue-line">
                                 {{#tueLectures}}
-                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
+                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}"
+                                    data-event="lecture-{{codeNum}}">
                                     <a href="/api/lectures/{{id}}">
                                         <div class="lecture-info">
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
                                         </div>
                                         {{#memos}}
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title={{contents}}>
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title=""
+                                             data-original-title={{contents}}>
                                             <i class="material-icons ic-lecture-noti">assignment</i>
                                             <span class="lecture-noti-title">{{title}}</span>
                                         </div>
@@ -124,14 +131,16 @@
                             </div>
                             <ul id="web-line">
                                 {{#wedLectures}}
-                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
+                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}"
+                                    data-event="lecture-{{codeNum}}">
                                     <a href="/api/lectures/{{id}}">
                                         <div class="lecture-info">
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
                                         </div>
                                         {{#memos}}
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title={{contents}}>
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title=""
+                                             data-original-title={{contents}}>
                                             <i class="material-icons ic-lecture-noti">assignment</i>
                                             <span class="lecture-noti-title">{{title}}</span>
                                         </div>
@@ -148,14 +157,16 @@
                             </div>
                             <ul id="thu-line">
                                 {{#thuLectures}}
-                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
+                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}"
+                                    data-event="lecture-{{codeNum}}">
                                     <a href="/api/lectures/{{id}}">
                                         <div class="lecture-info">
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
                                         </div>
                                         {{#memos}}
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title={{contents}}>
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title=""
+                                             data-original-title={{contents}}>
                                             <i class="material-icons ic-lecture-noti">assignment</i>
                                             <span class="lecture-noti-title">{{title}}</span>
                                         </div>
@@ -172,14 +183,16 @@
                             </div>
                             <ul id="fri-line">
                                 {{#friLectures}}
-                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}" data-event="lecture-{{codeNum}}">
+                                <li class="lecture-time {{hour}} hr-{{hourOfStartTime}}"
+                                    data-event="lecture-{{codeNum}}">
                                     <a href="/api/lectures/{{id}}">
                                         <div class="lecture-info">
                                             <h6 class="lecture-title">{{name}}</h6>
                                             <h6 class="lecture-location">{{location}}</h6>
                                         </div>
                                         {{#memos}}
-                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title={{contents}}>
+                                        <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title=""
+                                             data-original-title={{contents}}>
                                             <i class="material-icons ic-lecture-noti">assignment</i>
                                             <span class="lecture-noti-title">{{title}}</span>
                                         </div>
@@ -198,139 +211,141 @@
 </body>
 
 <script type="text/template" id="modal-lecture-info-script">
-<div class="modal fade" id="modal-lecture-info" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h3 class="lecture-title">{0}</h3>
-                <ul class="lecture-info">
-                    <li class="lecture-time">
-                        <i class="material-icons ic-lecture-info">access_alarm</i>
-                        <span>강의 시간 : {1} - {2} | ({3})</span>
-                    </li>
-                    <li class="lecture-code">
-                        <i class="material-icons ic-lecture-info">code</i>
-                        <span>교과목 코드 : <span id="popup-code-{7}">{4}</span></span>
-                    </li>
-                    <li class="lecture-code">
-                        <i class="material-icons ic-lecture-info">school</i>
-                        <span>담당 교수 : {5}</span>
-                    </li>
-                    <li class="lecture-code">
-                        <i class="material-icons ic-lecture-info">business</i>
-                        <span>강의실 : {6}</span>
-                    </li>
-                </ul>
-                <div class="lecture-description">
-                    <p class="txt-description">
-                    </p>
+    <div class="modal fade" id="modal-lecture-info" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">취소</button>
-                <button type="button" class="btn btn-primary" id="btn-primary" data-dismiss="modal">과목 등록하기</button>
+                <div class="modal-body">
+                    <h3 class="lecture-title">{0}</h3>
+                    <ul class="lecture-info">
+                        <li class="lecture-time">
+                            <i class="material-icons ic-lecture-info">access_alarm</i>
+                            <span>강의 시간 : {1} - {2} | ({3})</span>
+                        </li>
+                        <li class="lecture-code">
+                            <i class="material-icons ic-lecture-info">code</i>
+                            <span>교과목 코드 : <span id="popup-code-{7}">{4}</span></span>
+                        </li>
+                        <li class="lecture-code">
+                            <i class="material-icons ic-lecture-info">school</i>
+                            <span>담당 교수 : {5}</span>
+                        </li>
+                        <li class="lecture-code">
+                            <i class="material-icons ic-lecture-info">business</i>
+                            <span>강의실 : {6}</span>
+                        </li>
+                    </ul>
+                    <div class="lecture-description">
+                        <p class="txt-description">
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary" id="btn-primary" data-dismiss="modal">과목 등록하기</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </script>
 
 <script type="text/template" id="list-lecture-script">
     <ul class="list-lecture-script">
-            <li class="card-lecture" >
-                <a class="lecture-title" id = "lecture-title-script" href="/api/lectures/{0}">{1}</a>
-                <h6 class="lecture-time">
-                    <i class="material-icons ic-lecture-info">access_time</i>
-                    <span>
-                        <span id="lecture-start-time-script">{2}</span> - <span id="lecture-end-time-script">{3}</span> | (<span id="lecture-dates-script">{4}</span>)
+        <li class="card-lecture">
+            <a class="lecture-title" id="lecture-title-script" href="/api/lectures/{0}">{1}</a>
+            <h6 class="lecture-time">
+                <i class="material-icons ic-lecture-info">access_time</i>
+                <span>
+                        <span id="lecture-start-time-script">{2}</span> - <span id="lecture-end-time-script">{3}</span> | (<span
+                        id="lecture-dates-script">{4}</span>)
                     </span>
-                </h6>
-                <ul class="list-lecture-info">
-                    <li>교과목 코드 : <span id="lecture-code-script">{5}</span></li>
-                    <li>담당 교수 : <span id="lecture-professor-script">{6}</span></li>
-                    <li>강의실 : <span id="lecture-location-script">{7}</span></li>
-                </ul>
-            </li>
-        </ul>
+            </h6>
+            <ul class="list-lecture-info">
+                <li>교과목 코드 : <span id="lecture-code-script">{5}</span></li>
+                <li>담당 교수 : <span id="lecture-professor-script">{6}</span></li>
+                <li>강의실 : <span id="lecture-location-script">{7}</span></li>
+            </ul>
+        </li>
+    </ul>
 </script>
 
 <script type="text/template" id="lecture-timeline-script">
     <li class="lecture-time {0} hr-{1}" data-event="lecture-{2}">
-       <a href="/api/lectures/{6}">
-           <div class="lecture-info">
-               <h6 class="lecture-title">{3}</h6>
-               <h6 class="lecture-location">{4}</h6>
-           </div>
-           <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title="" data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
-           </div>
-       </a>
-   </li>
+        <a href="/api/lectures/{6}">
+            <div class="lecture-info">
+                <h6 class="lecture-title">{3}</h6>
+                <h6 class="lecture-location">{4}</h6>
+            </div>
+            <div class="lecture-noti" data-toggle="tooltip" data-placement="top" title=""
+                 data-original-title="과제 설명 텍스트 과제 설명 텍스트 과제 설명 텍스트">
+            </div>
+        </a>
+    </li>
 </script>
 
 <script type="text/template" id="modal-lecture-task-script">
-<div class="modal fade" id="modal-lecture-task" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h3 class="lecture-title">{0}</h3>
-                <ul class="lecture-info">
-                    <li class="lecture-time">
-                        <i class="material-icons ic-lecture-info">access_alarm</i>
-                        <span>강의 시간 : {1} - {2} | ({3})</span>
-                    </li>
-                    <li class="lecture-code">
-                        <i class="material-icons ic-lecture-info">code</i>
-                        <span>교과목 코드 : <span id="popup-task-code-{7}">{4}</span></span>
-                    </li>
-                    <li class="lecture-code">
-                        <i class="material-icons ic-lecture-info">school</i>
-                        <span>담당 교수 : {5}</span>
-                    </li>
-                    <li class="lecture-code">
-                        <i class="material-icons ic-lecture-info">business</i>
-                        <span>강의실 : {6}</span>
-                    </li>
-                </ul>
-                <div class="lecture-description">
-                    <p class="txt-description">
-                    </p>
-                </div>
-
-                <div class="lecture-memo">
-                    <h5 class="memo-header">메모</h5>
-                    <ul>
-                        {8}
-                    </ul>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <div class="left">
-                    <button class="btn btn-light-primary" type="button" data-toggle="popover"
-                            data-trigger="click" data-placement="right" data-html="true">
-                        메모 등록
+    <div class="modal fade" id="modal-lecture-task" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="right">
-                    <button type="button" class="btn btn-light" data-dismiss="modal" id="btn-ok">확인</button>
-                    <form action="/api/lectures/{7}" method="post">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="button" class="btn btn-danger" >과목 삭제하기</button>
-                    </form>
+                <div class="modal-body">
+                    <h3 class="lecture-title">{0}</h3>
+                    <ul class="lecture-info">
+                        <li class="lecture-time">
+                            <i class="material-icons ic-lecture-info">access_alarm</i>
+                            <span>강의 시간 : {1} - {2} | ({3})</span>
+                        </li>
+                        <li class="lecture-code">
+                            <i class="material-icons ic-lecture-info">code</i>
+                            <span>교과목 코드 : <span id="popup-task-code-{7}">{4}</span></span>
+                        </li>
+                        <li class="lecture-code">
+                            <i class="material-icons ic-lecture-info">school</i>
+                            <span>담당 교수 : {5}</span>
+                        </li>
+                        <li class="lecture-code">
+                            <i class="material-icons ic-lecture-info">business</i>
+                            <span>강의실 : {6}</span>
+                        </li>
+                    </ul>
+                    <div class="lecture-description">
+                        <p class="txt-description">
+                        </p>
+                    </div>
+
+                    <div class="lecture-memo">
+                        <h5 class="memo-header">메모</h5>
+                        <ul>
+                            {8}
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="left">
+                        <button class="btn btn-light-primary" type="button" data-toggle="popover"
+                                data-trigger="click" data-placement="right" data-html="true">
+                            메모 등록
+                        </button>
+                    </div>
+                    <div class="right">
+                        <button type="button" class="btn btn-light" data-dismiss="modal" id="btn-ok">확인</button>
+                        <form action="/api/lectures/{7}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="button" class="btn btn-danger">과목 삭제하기</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </script>
 
 <script type="text/template" id="modal-list-script">
@@ -356,27 +371,29 @@
                     </button>
                 </div>
                 <h5 class="schedule-title">메모 등록하기</h5>
+                <form action="/api/lectures/" method="post" id="add-memo">
                     <div class="form-group">
                         <label class="col-form-label">제목
-                            <input type="text" class="form-control" id="recipient-name" placeholder="제목 추가">
+                            <input type="text" class="form-control" id="recipient-name" placeholder="제목 추가"/>
                         </label>
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">설명</label>
                         <textarea class="form-control" id="message-text" placeholder="설명 추가"></textarea>
                     </div>
-                <div class="modal-footer">
-                    <form action="/api/lectures/" method="post" id="add-memo">
-                        <button type="submit" class="btn btn-primary btn-save" id="btn-save-memo" data-dismiss="modal">등록</button>
-                    </form>
-                </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary btn-save" id="btn-save-memo" data-dismiss="modal">
+                            등록
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
-<script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src = "/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
 </html>

@@ -117,7 +117,6 @@ function popupLectureTask(e) {
   console.log("클릭!!");
   var json = new Object();
   var url = $(this).attr("href");
-  console.log(this);
   console.log(url);
 
   $.ajax({
@@ -127,8 +126,6 @@ function popupLectureTask(e) {
       error : onError,
       success : function(data, status, jqXHR) {
         var memoList = "";
-        console.log(data);
-        console.log(data.memos);
 
         //메모 리스트 출력화면 구성
         for(var i = 0; i<data.memos.length; i++){
@@ -137,7 +134,6 @@ function popupLectureTask(e) {
         }
 
         //팝업창에 메모 출력하게 끔
-        console.log(memoList);
         var template = $('#modal-lecture-task-script').html();
         var completedTemplate = template.format(data.name, data.formattedStartTime, data.formattedEndTime, data.dates, data.code, data.professor, data.location, data.id, memoList);
 
@@ -162,8 +158,6 @@ function addMemo(e){
     json.contents = $('#message-text').val();
     var url = $('#add-memo').attr('action') +  lectureIdInMemo + '/memos';
 
-    console.log(json);
-
     $.ajax({
         type : 'post',
         url : url,
@@ -172,8 +166,8 @@ function addMemo(e){
         dataType : 'json',
         error : onError,
         success : function(data, status, jqXHR) {
-            console.log(data);
-            location.reload();
+            if(data.message) alert(data.message);
+            else location.reload();
         }
     })
 

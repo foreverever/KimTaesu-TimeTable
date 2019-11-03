@@ -64,4 +64,8 @@ public class Memo {
                 ", lecture=" + lecture +
                 '}';
     }
+
+    public boolean isEmptyValue() {
+        return title.equals("") || contents.equals("");
+    }
 }

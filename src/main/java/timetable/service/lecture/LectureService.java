@@ -7,6 +7,7 @@ import timetable.domain.lecture.Lecture;
 import timetable.domain.lecture.LectureRepository;
 import timetable.domain.lecture.memo.Memo;
 import timetable.domain.lecture.memo.MemoRepository;
+import timetable.security.exception.CannotRegisterMemo;
 
 import java.util.List;
 
@@ -42,6 +43,7 @@ public class LectureService {
 
     @Transactional
     public Memo addMemo(long lectureId, Memo memo) {
+        if (memo.isEmptyValue()) throw new CannotRegisterMemo("빈칸이 존재합니다. 다시 입력해 주세요");
         Lecture lecture = lectureRepository.findById(lectureId)
                 .orElseThrow(RuntimeException::new);
         lecture.addMemo(memo);
