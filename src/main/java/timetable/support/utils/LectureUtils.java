@@ -9,8 +9,8 @@ public class LectureUtils {
     public static final String THU = "목";
     public static final String FRI = "금";
 
-    public static String SubCodeNum(String code) {
-        return code.substring(7);
+    public static int CalcCodeColorNum(String code) {
+        return Integer.parseInt(code.substring(7)) % 10;
     }
 
     public static String getHourOfTime(String formattedTime) {

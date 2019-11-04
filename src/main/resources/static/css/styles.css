@@ -376,94 +376,94 @@ ol, ul {
     .table-schedule .table-schedule-subject .hr-18 {
       top: 57.375rem; } }
 
-.table-schedule .lecture-time[data-event="lecture-01"] {
+.table-schedule .lecture-time[data-event="lecture-1"] {
   background-color: #E0F2F1; }
-  .table-schedule .lecture-time[data-event="lecture-01"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-01"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-01"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-01"] .lecture-noti-title {
+  .table-schedule .lecture-time[data-event="lecture-1"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-1"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-1"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-1"] .lecture-noti-title {
     color: #009688; }
-  .table-schedule .lecture-time[data-event="lecture-01"]:hover {
+  .table-schedule .lecture-time[data-event="lecture-1"]:hover {
     background-color: #B2DFDB; }
-  .table-schedule .lecture-time[data-event="lecture-01"]:before {
+  .table-schedule .lecture-time[data-event="lecture-1"]:before {
     background-color: #009688; }
 
-.table-schedule .lecture-time[data-event="lecture-02"] {
+.table-schedule .lecture-time[data-event="lecture-2"] {
   background: #EFEBE9; }
-  .table-schedule .lecture-time[data-event="lecture-02"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-02"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-02"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-02"] .lecture-noti-title {
+  .table-schedule .lecture-time[data-event="lecture-2"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-2"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-2"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-2"] .lecture-noti-title {
     color: #795548; }
-  .table-schedule .lecture-time[data-event="lecture-02"]:hover {
+  .table-schedule .lecture-time[data-event="lecture-2"]:hover {
     background-color: #D7CCC8; }
-  .table-schedule .lecture-time[data-event="lecture-02"]:before {
+  .table-schedule .lecture-time[data-event="lecture-2"]:before {
     background-color: #795548; }
 
-.table-schedule .lecture-time[data-event="lecture-03"] {
+.table-schedule .lecture-time[data-event="lecture-3"] {
   background: #E1F5FE; }
-  .table-schedule .lecture-time[data-event="lecture-03"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-03"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-03"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-03"] .lecture-noti-title {
+  .table-schedule .lecture-time[data-event="lecture-3"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-3"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-3"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-3"] .lecture-noti-title {
     color: #03A9F4; }
-  .table-schedule .lecture-time[data-event="lecture-03"]:hover {
+  .table-schedule .lecture-time[data-event="lecture-3"]:hover {
     background-color: #B3E5FC; }
-  .table-schedule .lecture-time[data-event="lecture-03"]:before {
+  .table-schedule .lecture-time[data-event="lecture-3"]:before {
     background-color: #03A9F4; }
 
-.table-schedule .lecture-time[data-event="lecture-04"] {
+.table-schedule .lecture-time[data-event="lecture-4"] {
   background: #EDE7F6; }
-  .table-schedule .lecture-time[data-event="lecture-04"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-04"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-04"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-04"] .lecture-noti-title {
+  .table-schedule .lecture-time[data-event="lecture-4"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-4"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-4"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-4"] .lecture-noti-title {
     color: #673AB7; }
-  .table-schedule .lecture-time[data-event="lecture-04"]:hover {
+  .table-schedule .lecture-time[data-event="lecture-4"]:hover {
     background-color: #D1C4E9; }
-  .table-schedule .lecture-time[data-event="lecture-04"]:before {
+  .table-schedule .lecture-time[data-event="lecture-4"]:before {
     background-color: #673AB7; }
 
-.table-schedule .lecture-time[data-event="lecture-05"] {
+.table-schedule .lecture-time[data-event="lecture-5"] {
   background: #FCE4EC; }
-  .table-schedule .lecture-time[data-event="lecture-05"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-05"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-05"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-05"] .lecture-noti-title {
+  .table-schedule .lecture-time[data-event="lecture-5"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-5"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-5"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-5"] .lecture-noti-title {
     color: #E91E63; }
-  .table-schedule .lecture-time[data-event="lecture-05"]:hover {
+  .table-schedule .lecture-time[data-event="lecture-5"]:hover {
     background-color: #F8BBD0; }
-  .table-schedule .lecture-time[data-event="lecture-05"]:before {
+  .table-schedule .lecture-time[data-event="lecture-5"]:before {
     background-color: #E91E63; }
 
-.table-schedule .lecture-time[data-event="lecture-06"] {
+.table-schedule .lecture-time[data-event="lecture-6"] {
   background: #E8F5E9; }
-  .table-schedule .lecture-time[data-event="lecture-06"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-06"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-06"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-06"] .lecture-noti-title {
+  .table-schedule .lecture-time[data-event="lecture-6"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-6"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-6"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-6"] .lecture-noti-title {
     color: #4CAF50; }
-  .table-schedule .lecture-time[data-event="lecture-06"]:hover {
+  .table-schedule .lecture-time[data-event="lecture-6"]:hover {
     background-color: #C8E6C9; }
-  .table-schedule .lecture-time[data-event="lecture-06"]:before {
+  .table-schedule .lecture-time[data-event="lecture-6"]:before {
     background-color: #4CAF50; }
 
-.table-schedule .lecture-time[data-event="lecture-07"] {
+.table-schedule .lecture-time[data-event="lecture-7"] {
   background: #FFF3E0; }
-  .table-schedule .lecture-time[data-event="lecture-07"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-07"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-07"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-07"] .lecture-noti-title {
+  .table-schedule .lecture-time[data-event="lecture-7"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-7"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-7"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-7"] .lecture-noti-title {
     color: #FF9800; }
-  .table-schedule .lecture-time[data-event="lecture-07"]:hover {
+  .table-schedule .lecture-time[data-event="lecture-7"]:hover {
     background-color: #FFE0B2; }
-  .table-schedule .lecture-time[data-event="lecture-07"]:before {
+  .table-schedule .lecture-time[data-event="lecture-7"]:before {
     background-color: #FF9800; }
 
-.table-schedule .lecture-time[data-event="lecture-08"] {
+.table-schedule .lecture-time[data-event="lecture-8"] {
   background: #EEEBFF; }
-  .table-schedule .lecture-time[data-event="lecture-08"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-08"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-08"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-08"] .lecture-noti-title {
+  .table-schedule .lecture-time[data-event="lecture-8"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-8"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-8"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-8"] .lecture-noti-title {
     color: #0078FF; }
-  .table-schedule .lecture-time[data-event="lecture-08"]:hover {
+  .table-schedule .lecture-time[data-event="lecture-8"]:hover {
     background-color: #BBCAFB; }
-  .table-schedule .lecture-time[data-event="lecture-08"]:before {
+  .table-schedule .lecture-time[data-event="lecture-8"]:before {
     background-color: #0078FF; }
 
-.table-schedule .lecture-time[data-event="lecture-09"] {
+.table-schedule .lecture-time[data-event="lecture-9"] {
   background: #E9ECF3; }
-  .table-schedule .lecture-time[data-event="lecture-09"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-09"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-09"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-09"] .lecture-noti-title {
+  .table-schedule .lecture-time[data-event="lecture-9"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-9"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-9"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-9"] .lecture-noti-title {
     color: #5F7F90; }
-  .table-schedule .lecture-time[data-event="lecture-09"]:hover {
+  .table-schedule .lecture-time[data-event="lecture-9"]:hover {
     background-color: #CDD7E0; }
-  .table-schedule .lecture-time[data-event="lecture-09"]:before {
+  .table-schedule .lecture-time[data-event="lecture-9"]:before {
     background-color: #5F7F90; }
 
-.table-schedule .lecture-time[data-event="lecture-10"] {
+.table-schedule .lecture-time[data-event="lecture-0"] {
   background: #FBE9E7; }
-  .table-schedule .lecture-time[data-event="lecture-10"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-10"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-10"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-10"] .lecture-noti-title {
+  .table-schedule .lecture-time[data-event="lecture-0"] .lecture-title, .table-schedule .lecture-time[data-event="lecture-0"] .lecture-location, .table-schedule .lecture-time[data-event="lecture-0"] .ic-lecture-noti, .table-schedule .lecture-time[data-event="lecture-0"] .lecture-noti-title {
     color: #FF5722; }
-  .table-schedule .lecture-time[data-event="lecture-10"]:hover {
+  .table-schedule .lecture-time[data-event="lecture-0"]:hover {
     background-color: #FFCCBC; }
-  .table-schedule .lecture-time[data-event="lecture-10"]:before {
+  .table-schedule .lecture-time[data-event="lecture-0"]:before {
     background-color: #FF5722; }
 
 .modal-header {

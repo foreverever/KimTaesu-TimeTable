@@ -137,8 +137,8 @@ public class Lecture {
         this.registered = registered;
     }
 
-    public String getCodeNum() {
-        return LectureUtils.SubCodeNum(code);
+    public int getCodeColorNum() {
+        return LectureUtils.CalcCodeColorNum(code);
     }
 
     public String getHour() {
