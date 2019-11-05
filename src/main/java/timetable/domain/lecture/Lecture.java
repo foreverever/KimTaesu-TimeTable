@@ -36,7 +36,7 @@ public class Lecture {
     @Column
     private LocalDateTime endTime;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "lecture")
     @JsonManagedReference
     private List<Memo> memos;
 
@@ -180,7 +180,7 @@ public class Lecture {
 
     public void deleteMemo(long id) {
         for (Memo memo : memos) {
-            if (memo.getId() == id) {
+            if (memo.isEqualId(id)) {
                 memos.remove(memo);
                 return;
             }

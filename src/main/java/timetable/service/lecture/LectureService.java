@@ -55,6 +55,7 @@ public class LectureService {
         Lecture lecture = lectureRepository.findById(lectureId)
                 .orElseThrow(RuntimeException::new);
         lecture.deleteMemo(id);
+        memoRepository.deleteById(id);
     }
 
     @Transactional
@@ -62,6 +63,7 @@ public class LectureService {
         Lecture lecture = lectureRepository.findById(id)
                 .orElseThrow(RuntimeException::new);
         lecture.delete();
+        memoRepository.deleteByLectureId(id);
     }
 
     @Transactional

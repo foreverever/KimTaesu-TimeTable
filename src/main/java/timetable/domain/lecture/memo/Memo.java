@@ -68,4 +68,8 @@ public class Memo {
     public boolean isEmptyValue() {
         return title.equals("") || contents.equals("");
     }
+
+    public boolean isEqualId(long id) {
+        return this.id == id;
+    }
 }
